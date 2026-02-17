@@ -21,7 +21,10 @@ def get_current_user(
             detail="Invalid or expired token",
         )
 
-    user = db.query(User).filter(User.id == payload["user_id"]).first()
+    # ⭐ DO NOT convert to UUID — keep string
+    user_id = payload["user_id"]
+
+    user = db.query(User).filter(User.id == user_id).first()
 
     if not user:
         raise HTTPException(

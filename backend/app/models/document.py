@@ -6,6 +6,9 @@ class Document(Base):
     __tablename__ = "documents"
 
     id = Column(Integer, primary_key=True, index=True)
+
+    title = Column(String, nullable=True)
+
     original_filename = Column(String, nullable=False)
     stored_filename = Column(String, nullable=False, unique=True)
     file_path = Column(String, nullable=False)

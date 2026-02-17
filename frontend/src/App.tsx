@@ -1,11 +1,18 @@
-function App() {
-  return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold text-blue-600">
-        Document Signature App 
-      </h1>
-    </div>
-  )
-}
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import SignDocument from "./pages/SignDocument";
 
-export default App
+export default function App(){
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/sign/:id" element={<SignDocument/>}/>
+      </Routes>
+    </BrowserRouter>
+  );
+}
